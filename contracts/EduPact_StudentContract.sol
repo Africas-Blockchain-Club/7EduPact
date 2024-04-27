@@ -47,7 +47,11 @@ contract StudentContract {
     student.name = name;
     student.surname = surname;
     student.isRegistered = true;
-}
+    }
+
+    function setNFTContract(EduPact_NFT _nftContract) public {
+        nftContract = _nftContract;
+    }
 
     // Function to register a student for a course
     // Requires that the student is registered and the course exists

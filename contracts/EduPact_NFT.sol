@@ -24,6 +24,10 @@ contract EduPact_NFT is ERC721 {
         nextTokenId++;
     }
 
+    function setStudentContract(StudentContract _studentContract) public {
+        studentContract = _studentContract;
+    }
+
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
     address owner = ownerOf(tokenId); // This will throw if the token does not exist
 
