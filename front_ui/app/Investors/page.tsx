@@ -61,7 +61,7 @@ const InvestorDetails = () => {
 
             <hr className="mt-16 border-t-2" />
 
-
+            {/* Joining for investors */}
             <div className="mt-14 lg:mt-28 relative">
         <div className="text-center md:w-9/12 w-11/12 mx-auto flex flex-col justify-center items-center py-12 lg:py-20  text-primary-dark-brown  rounded-xl">
           <h2 className="text-2xl font-semibold text-primary-dark-brown">Join The Revolution</h2>

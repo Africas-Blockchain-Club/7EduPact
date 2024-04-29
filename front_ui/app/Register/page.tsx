@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Register = () =>{
     return (
         <div className="h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('images/bg6.jpg')" }}>
-        {/* Login page */}
+        {/* Register page */}
         <div className="bg-amber-800 border border-amber-400 rounded-md p-8 shadow-lg backdrop-blur-sm bg-opacity-30 relative ">
             <h1 className="text-4xl text-white font-bold text-center mb-6">Register</h1>
             <form action="">
