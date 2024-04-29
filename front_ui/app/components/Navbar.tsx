@@ -2,6 +2,19 @@ import Link from "next/link";
 import React from "react";
 
 const NavBar = () => {
+  const connectWallet = async () => {
+    // Check if Metamask is installed
+    if (window.ethereum) {
+        try {
+            // Request account access
+            await window.ethereum.enable();
+        } catch (error) {
+            console.error("User denied account access");
+        }
+    } else {
+        console.error("Non-Ethereum browser detected. You should consider trying MetaMask!");
+    }
+};
 
     return(
         <nav className="flex items-center"> 
@@ -40,6 +53,9 @@ const NavBar = () => {
                 hover:text-zinc-800 duration-300 hover:border border border-amber-700">Login</div></Link>
             <Link href="/Register"> <div className=" text-white bg-amber-700 rounded-3xl py-3 px-8 font-medium inline-block mr-4 hover:bg-transparent
             hover:text-zinc-800 duration-300 hover:border border border-amber-700">Sign Up</div></Link>
+            <button onClick={connectWallet} className="text-white bg-amber-700 rounded-3xl py-3 px-8 font-medium inline-block mr-4 hover:bg-transparent
+            hover:text-zinc-800 duration-300 hover:border border border-amber-700">Connect Wallet</button>
+
             
         </nav>
 

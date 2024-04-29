@@ -1,9 +1,204 @@
+"use client"
 import "../globals.css";
 import {BiUser} from "react-icons/bi";
 import Link from 'next/link';
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import Web3 from 'web3';
 
 const Login = () => {
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const contractABI = [
+            {
+                "inputs": [
+                    {
+                        "internalType": "contract CourseContract",
+                        "name": "_courseContract",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract EduPact_NFT",
+                        "name": "_nftContract",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "courseName",
+                        "type": "string"
+                    }
+                ],
+                "name": "completeCourse",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "studentAddress",
+                        "type": "address"
+                    }
+                ],
+                "name": "getCourseForStudent",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "studentAddress",
+                        "type": "address"
+                    }
+                ],
+                "name": "getStudent",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "studentAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "courseName",
+                        "type": "string"
+                    }
+                ],
+                "name": "hasCompletedCourse",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "studentAddress",
+                        "type": "address"
+                    }
+                ],
+                "name": "isRegistered",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "courseName",
+                        "type": "string"
+                    }
+                ],
+                "name": "registerForCourse",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "surname",
+                        "type": "string"
+                    }
+                ],
+                "name": "registerStudent",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "contract EduPact_NFT",
+                        "name": "_nftContract",
+                        "type": "address"
+                    }
+                ],
+                "name": "setNFTContract",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ];
+        const contractAddress = '0x2eB83e53069166c6555aF0d1F9976bEF95aaf9ef';
+
+        const connectWallet = async () => {
+            if (window.ethereum) {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const web3 = new Web3(window.ethereum);
+                    const contract = new web3.eth.Contract(contractABI, contractAddress);
+                    const isRegistered = await contract.methods.isRegistered(accounts[0]).call();
+
+                    if (!isRegistered) {
+                        router.push('/Register'); // Navigate to Register screen if not registered
+                    } else {
+                        router.push('/Courses'); // Navigate to Courses screen if registered
+                    }
+                } catch (error) {
+                    console.error("User denied account access");
+                }
+            } else {
+                console.error("Non-Ethereum browser detected. You should consider trying MetaMask!");
+            }
+        };
+
+        connectWallet(); // Call connectWallet function when component mounts
+    }, []);
+
     return (
         <div className="h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('images/bg6.jpg')" }}>
             <div>
@@ -11,24 +206,6 @@ const Login = () => {
                 <h1 className="text-4xl text-white font-bold text-center mb-6">Login</h1>
                 <h3 className="text-2xl text-white font-bold text-center mb-6">Welcome Back</h3>
                 <form action="">
-                <div className=" relative my-4">
-                    <input type="email" className="block w-72 py-2.5 px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border:blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer" placeholder="" />
-                    <label htmlFor="" className="absolute text-sm text-white duration-300 transform -translate-y6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer=focus:-translate-y-6">Your Email</label>
-                    <BiUser className="absolute top-4 right-4"/>
-                </div>
-                <div className="flex justify-between items-center">
-                    <div className="flex gap-2 items-center">
-                        <input type="checkbox" name="" id="" />
-                        <label htmlFor="Remember Me">Remember Me</label>
-                    </div>
-                </div>
-                <Link href="./LandingPage">
-                <button className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-zinc-800 hover:bg-transparent hover:border hover:text-white py-2 transition-colors duration-300" type="submit">Login</button></Link>
-                <div className="mt-10 grid grid-cols-3 items-center text-amber-800">
-                    <hr className=" mb-5 text-amber-800"/>
-                    <p className="mb-5 text-center text-sm">OR</p>
-                    <hr className= "mb-5 text-amber-800" />
-                </div>
                 <button className="mb-5 bg-white border py-2 w-full rounded-full mt-5 flex justify-center items-center text-[18px]  text-zinc-800  hover:bg-transparent hover:border hover:text-white transition-colors duration-300">Login with Metamask
                 <Image className="ml-3 text-sm" src="/images/metamask-icon.svg" width={25} height={25} alt=""/>
                 </button>
