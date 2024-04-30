@@ -86,7 +86,7 @@ const StudentDetails = () => {
       <div className="mt-14 lg:mt-28 relative">
         <div className="text-center md:w-9/12 w-11/12 mx-auto flex flex-col justify-center items-center py-12 lg:py-20  text-primary-dark-brown  rounded-xl">
           <h2 className="text-2xl font-semibold text-primary-dark-brown">Become a member</h2>
-          <p className="text-sm lg:text-base py-6 lg:w-[55ch] text-justify font-medium">Become a member of PactSkillHub and be part of a vibrant community dedicated to celebrating diversity and empowering women in tech. Connect with like-minded individuals, gain access to valuable resources and events, and contribute to shaping the future of the tech industry.</p>
+          <p className="text-sm lg:text-base py-6 lg:w-[55ch] text-justify font-medium">Become a member of PactSkillHub and be part of a vibrant community dedicated to celebrating diversity and empowering women in tech. Connect with like-minded individuals, gain access to valuable resources and events, and contribute to shaping the future of the tech industry and also empowering women in tech.</p>
           <Link href="./Register" className="bg-amber-700 rounded-3xl py-3 px-8 font-medium inline-block mr-4 text-white hover:bg-transparent
             hover:text-zinc-800 duration-300 hover:border border border-amber-700">Join Us</Link>
         </div>
