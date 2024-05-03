@@ -15,7 +15,7 @@ const Course = () => {
                     <div className="w-1/2 flex justify-center">
                         <div className="bg-white bg-opacity-60 rounded-xl p-8 flex flex-col justify-center border border-amber-700">
                             <h1 className="text-xl font-bold text-zinc-600 mb-4">Blockchain For Beginners</h1>
-                            <p className="text-lg font-semibold text-zinc-600 text-justify mb-4">Unlock the future of finance with "Blockchain for Beginners," an immersive online course designed to demystify the revolutionary technology of blockchain!</p>
+                            <p className="text-lg font-semibold text-zinc-600 text-justify mb-4">{`Unlock the future of finance with "Blockchain for Beginners," an immersive online course designed to demystify the revolutionary technology of blockchain!`}</p>
                             <div className="mt-4 text-zinc-600">
                                 <svg aria-hidden="false" aria-label="Course Language" role="img" focusable="false" className="ud-icon ud-icon-xsmall ud-icon-color-neutral icon"></svg>
                                 <span className="ml-2 mb">English</span>
@@ -39,7 +39,7 @@ const Course = () => {
                             <p className="text-zinc-600">Requirements: <span className="font-medium">None!</span></p>
                             <ul className="text-zinc-600">
                                 <li>
-                                    <span className="underline text-amber-800">1. A focus on doing, not just listening.</span> The best way to reinforce a skill is to practice it yourself, and blockchain isn't any different.
+                                    <span className="underline text-amber-800">{`1. A focus on doing, not just listening.`}</span>{`The best way to reinforce a skill is to practice it yourself, and blockchain isn't any different.`}
                                 </li>
                                 <li>
                                     <span className="underline text-amber-800">2. Understanding of blockchain and how it works.</span> You will develop the required skills and knowledge about Blockchain.
@@ -49,7 +49,7 @@ const Course = () => {
                     </div>
                     <div className="w-1/2 flex justify-center">
                         <div className="bg-white bg-opacity-60 rounded-xl p-10 border border-amber-700">
-                            <h2 className="text-lg font-semibold text-zinc-600">What you'll learn:</h2>
+                            <h2 className="text-lg font-semibold text-zinc-600">{`What you'll learn:`}</h2>
                             <ul className="list-disc list-inside text-zinc-600">
                                 <li>What is Blockchain?</li>
                                 <li>Its importance</li>
