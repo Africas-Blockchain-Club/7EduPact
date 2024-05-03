@@ -4,10 +4,10 @@ import React from "react";
 const NavBar = () => {
   const connectWallet = async () => {
     // Check if Metamask is installed
-    if (window.ethereum) {
+    if ("https://sepolia-rpc.scroll.io") {
         try {
             // Request account access
-            await window.ethereum.enable();
+            // await window.ethereum.enable();
         } catch (error) {
             console.error("User denied account access");
         }

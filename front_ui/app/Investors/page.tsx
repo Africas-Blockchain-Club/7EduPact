@@ -10,7 +10,9 @@ const InvestorDetails = () => {
             <div className='relative text-zinc-800  text-ml lg:w-6/12 w-11/12 mx-auto flex flex-col justify-center'>
             <div className='mb-16'></div>
 
-                <h2 className="text-2xl font-semibold mb-4 text-center">Welcome to the <span className="underline"> Investor's Platform</span></h2>
+                <h2 className="text-2xl font-semibold mb-4 text-center">Welcome to the <span className="underline"> 
+                
+                {`Investor's Platform`}</span></h2>
                 <p className="text-justify">At <span className="font-medium text-amber-800"> PactSkillHub</span>, we believe in revolutionizing education by <span className="font-medium text-amber-800">leveraging blockchain and NFTs</span> to empower learners and reshape the future of learning. As an investor, you play a crucial role in this transformative journey,  <span className="font-medium text-amber-800"> empowering learners financially while fostering skill development and community enrichment.</span></p>
             </div>
 
@@ -44,10 +46,10 @@ const InvestorDetails = () => {
 
                 <div className="lg:w-5/12">
                     <div className='mb-16'></div>
-                        <h3 className="underline text-xl font-semibold">Transparent Tracking:</h3>
+                        <h3 className="underline text-xl font-semibold">{`Transparent Tracking:`}</h3>
                             <div className='mb-4'></div>
                                 <p className=' text-white bg-amber-800 border border-amber-600 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-lg bg-opacity-30 relative '>
-                                You'll have access to track the progress of the students you support. Through our platform, you can monitor their learning journey and provide support and encouragement along the way. Additionally, students receive mini-tasks from donors after completing each section of the sponsored course, allowing for personalized engagement and feedback.
+                                {`You'll have access to track the progress of the students you support. Through our platform, you can monitor their learning journey and provide support and encouragement along the way. Additionally, students receive mini-tasks from donors after completing each section of the sponsored course, allowing for personalized engagement and feedback.`}
                                 </p>
                     <div className='mb-16'></div>
                         <h3 className="underline text-xl font-semibold">Community Enrichment:</h3>

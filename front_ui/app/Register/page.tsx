@@ -181,11 +181,11 @@ const Register = () => {
             return;
         }
 
-        if (window.ethereum) {
+        if ("https://sepolia-rpc.scroll.io") {
             try {
-                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                const web3 = new Web3(window.ethereum);
+                const web3 = new Web3("https://sepolia-rpc.scroll.io");
                 const contract = new web3.eth.Contract(contractABI, contractAddress);
+                const accounts = await web3.eth.requestAccounts()
                 
                 // Call the registerStudent function with name, surname, and user's wallet address
                 // Specify gas fees 
