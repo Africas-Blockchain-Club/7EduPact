@@ -7,6 +7,8 @@ Revolutionise education &amp; charity with our 7EduPact decentralised app (dApp)
 - Node.js installed on your machine
 - or
 - Access to GitHub Codespaces
+- or
+- [domain url](http://7-edu-pact.vercel.app/)
 
 ### Running on GitHub Codespaces
 1. Open the repository in GitHub Codespaces.
